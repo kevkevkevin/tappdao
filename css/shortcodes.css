@@ -933,8 +933,8 @@
 	.button-border {
 		height: 50px;
 		width: auto;
-		border: solid 2px currentColor;
-		background-color:#000;
+		border: solid 2px #FDAB24;
+		background-color:#FDAB24;
 		color:#fff;
 		border-radius: 5px;
 		cursor:pointer;

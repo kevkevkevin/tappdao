@@ -34,7 +34,7 @@ Function CustomFunction
 
 	function CustomFunction() {
 		
-		//Add here your custom js code
+		
 		
 	}// End CustomFunction
 	
