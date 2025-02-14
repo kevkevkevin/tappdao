@@ -17,20 +17,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     
     <style>
+        
+        html, body {
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
+
+
          .copy-alert {
-		display: none;
-		position: absolute;
-		left: 50%;
-    	transform: translateX(-50%);
-		background: rgba(0, 0, 0, 0.8);
-		color: white;
-		padding: 8px 12px;
-		border-radius: 5px;
-		font-size: 14px;
-		margin-top: 5px;
-		opacity: 0;
-		transition: opacity 0.3s ease-in-out;
-	}
+            display: none;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-size: 14px;
+            margin-top: 5px;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
 
     </style>
    
@@ -98,7 +105,7 @@
                                     </ul>
                                 </li>
                                 <li class="menu-timeline link"><a class="ajax-link" href="https://x.com/TappDao"><div class="before-span"><span data-hover="X">X</span></div></a></li>
-                                <li class="menu-timeline link"><a class="ajax-link" href="https://t.me/TappDao"><div class="before-span"><span data-hover="Telegram">Telegram</span></div></a></li>
+                                <li class="menu-timeline link"><a class="ajax-link" href="https://app.azura.xyz/spot?address=2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt&c=1399811149"><div class="before-span"><span data-hover="Azura">Azura</span></div></a></li>
                             </ul>
                         </div>          
                     </nav>
@@ -161,20 +168,12 @@
                                         <div><span>TAPPDAO</span></div>
                                     </h1>
                                     
-                                    <div class="button-box has-animation" data-delay="100" style="margin-bottom: 20px;">             
-                                        <div class="clapat-button-wrap parallax-wrap hide-ball">
-                                            <div class="clapat-button parallax-element">
-                                                <div class="button-border rounded parallax-element-second">
-                                                    <a target="_blank" href="https://app.azura.xyz/spot?address=2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt&c=1399811149">
-                                                        <span data-hover="VIEW OUR CHART">VIEW OUR CHART</span>
-                                                     </a>
-                                                </div>
-                                            </div>
-                                        </div> 
-                                    </div><br>
-                                    <div class="has-animation" style="position: relative; display: inline-block;">
-                                        TappDao CA: <a class="link" href="#" onclick="copyText(event, '2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt')">2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt</a>
-                                        <div class="copy-alert" id="copyAlert">You're good to go!</div>
+                                    <div class="has-animation" style="position: relative; display: inline-block; margin: 15px">
+                                        <a class="link" href="https://app.azura.xyz/spot?address=2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt&c=1399811149">View Our Chart</a>
+                                    </div>
+                                    <div class="has-animation" style="position: relative; display: inline-block; margin: 15px">
+                                         <br><a class="link" href="#" onclick="copyText(event, '2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt')">TappDao CA</a>
+                                        <div class="copy-alert" id="copyAlert">Copied!</div>
                                     </div>
 
                                     <div class="hero-subtitle caption-timeline onload-shuffle">
@@ -201,12 +200,12 @@
                         </div>
                         <div id="hero-interaction">
                         	<div class="hero-column col-left">
-                            	<div class="col-img-wrapper small-img"><img src="images/tappdao.jpg" alt=""></div>
-                                <div class="col-img-wrapper large-img"><img src="images/tappdao2.jpg" alt=""></div>
+                            	<div class="col-img-wrapper small-img"><img src="images/1.webp" alt=""></div>
+                                <div class="col-img-wrapper large-img"><img src="images/3.webp" alt=""></div>
                             </div>
                             <div class="hero-column col-right">
-                            	<div class="col-img-wrapper large-img"><img src="images/tappdao3.jpg" alt=""></div>
-                                <div class="col-img-wrapper small-img"><img src="images/tappdao4.jpg" alt=""></div>
+                            	<div class="col-img-wrapper large-img"><img src="images/e1.webp" alt=""></div>
+                                <div class="col-img-wrapper small-img"><img src="images/e2.webp" alt=""></div>
                             </div>
                         </div>
                     </div>                      
@@ -236,7 +235,7 @@
                                                         </span>
                                                     </span>
                                                 </span>
-                                                <span>DAO 😏</span>
+                                                <span>DAO ✌🏻</span>
                                             </h2>
                                         
                                         </div>
@@ -281,16 +280,16 @@
                                     <!--/Row -->
 
                                     <!-- ClaPat Portfolio -->
-                                    <div class="showcase-portfolio row_padding_bottom expand-grid" style="padding-top: 0;">
+                                    <div class="content-row showcase-portfolio row_padding_bottom expand-grid row_padding_left row_padding_right" style="padding-top: 0;">
                                         
                                         <div class="clapat-item photo-filter">
                                             <div class="slide-inner trigger-item" data-centerLine="OPEN">                                                    
                                                 <div class="img-mask pixels-cover">
-                                                    <a class="slide-link" data-type="page-transition" href="./whitepaper.html"></a>
+                                                    <a class="slide-link" data-type="page-transition" href="./nft.html"></a>
                                                     <div class="section-image trigger-item-link">
                                                         <img src="images/nftLaunch.jpg" class="item-image grid__item-img" alt="">
                                                     </div>                                                
-                                                    <img src="images/wp.jpg" class="grid__item-img grid__item-img--large" alt="">
+                                                    <img src="images/nftLaunch.jpg" class="grid__item-img grid__item-img--large" alt="">
                                                     <div class="section-thumb">
                                                         <img src="images/v101.webp" alt="">
                                                     </div>                              
@@ -331,7 +330,7 @@
                                         <h5 class="no-margins">OUR ROADMAP</h5>
                                         <p>The Tapp DAO whitepaper outlines an ambitious roadmap for 2025, focusing on Web3 innovation, AI integration, and decentralized governance.</p>
                                         
-                                    <hr>
+                                        <hr>
                                         <!-- Row -->
                                         <div class="content-row light-section full" data-bgcolor="#c8c8c8">
                                             
@@ -520,30 +519,30 @@
                                             
                                         </div> 
                                                            
-                                </div> 
-                                <!--/Row -->
+                                    </div> 
+                                    <!--/Row -->
                                                       
                         
-                            </div>                                                           
-                        </div>    
-                        <!-- Fit Thumb Screen Effects -->
-                    </div>
-                    <!--/Main Page Content -->                        
+                                </div>                                                           
+                            </div>    
+                            <!-- Fit Thumb Screen Effects -->
+                        </div>
+                        <!--/Main Page Content -->                        
                     
                             
-                    <!-- Page Navigation --> 
-                    <div id="page-nav" class="move-nav-onload">
-                        <div class="page-nav-wrap">
-                            <div class="page-nav-caption nav-full-caption content-full-width text-align-center">                                 
-                                <div class="inner">
-                                    <a class="" data-centerline="GO TO" href="https://www.daos.fun/2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt">
-                                        <div class="next-hero-title caption-timeline" data-infoTextBefore="Go Ahead" data-infoTextAfter="Here"><span>GET IT</span></div>
-                                    </a>                                  
-                                </div>                  
+                        <!-- Page Navigation --> 
+                        <div id="page-nav" class="move-nav-onload">
+                            <div class="page-nav-wrap">
+                                <div class="page-nav-caption nav-full-caption content-full-width text-align-center">                                 
+                                    <div class="inner">
+                                        <a class="" data-centerline="GO TO" href="https://www.daos.fun/2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt">
+                                            <div class="next-hero-title caption-timeline" data-infoTextBefore="Go Ahead" data-infoTextAfter="Here"><span>GET IT</span></div>
+                                        </a>                                  
+                                    </div>                  
+                                </div>
                             </div>
-                        </div>
-                    </div>      
-                    <!--/Page Navigation -->
+                        </div>      
+                        <!--/Page Navigation -->
                         
                                 
                     </div>
