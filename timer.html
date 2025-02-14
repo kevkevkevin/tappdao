@@ -96,7 +96,11 @@
             width: 100%;
             text-align: center;
             margin: 10px 0;
+        }
+
+        .p_menu a {
             color: #fff;
+
         }
 
         .p_menu span {
@@ -149,11 +153,15 @@
             border-radius: 4px;
             flex-shrink: 0;
             position: relative;
+            bottom: -8px;
+            left: -8px;
         }
 
         .expanded .album-art {
-            width: 48px;
-            height: 48px;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            bottom: -21px;
         }
 
         .album-art img {
@@ -237,7 +245,7 @@
         .controls {
             display: none;
             justify-content: flex-end;
-            gap: 24px;
+            gap: 15px;
             margin-right: 8px;
         }
 
@@ -302,7 +310,7 @@
         <div class="player" id="player" style="z-index: 99;">
             <div class="player-content">
                 <div class="album-art">
-                    <img src="./images/tappbefore.png" alt="Album Art">
+                    <img src="./images/player__.png" alt="Album Art">
                 </div>
                 <div class="equalizer" id="equalizer">
                     <div class="bar"></div>
@@ -377,9 +385,9 @@
                     <div id="hero">
                         <div id="hero-styles">
                             <p class="p_menu">
-                                <span>Home</span>
-                                <span>Whitepaper</span>
-                                <span>Buy $TD</span>
+                                <a href="./index.html"><span>Home</span></a>
+                                <a href="./whitepaper.html"><span>Whitepaper</span></a>
+                                <a href="https://www.daos.fun/2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt"><span>Buy $TD</span></a>
                             </p>
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center hero-full-caption">
                                 
@@ -539,7 +547,7 @@
 
     <script>
         function updateCountdown() {
-            const targetDate = new Date('2025-02-16T14:00:00');
+            const targetDate = new Date('2025-02-20T00:00:00');
             const currentDate = new Date();
             const timeLeft = targetDate - currentDate;
 
