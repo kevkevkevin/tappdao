@@ -14,6 +14,90 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+         .countdown-container {
+            font-family: Arial, sans-serif;
+            width: 90%;
+            max-width: 600px;
+            margin: 20px;
+            text-align: center;
+            padding: clamp(15px, 4vw, 30px);
+            background: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+
+        .countdown-title {
+            color: #2b2b2b;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+        }
+
+        .countdown-timer {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+            gap: clamp(10px, 2vw, 20px);
+            justify-content: center;
+        }
+
+        .countdown-block {
+            background: #fff;
+            padding: clamp(10px, 3vw, 20px);
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .number_ {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: bold;
+            color: #2b2b2b;
+            margin-bottom: 5px;
+        }
+
+        .label {
+            font-size: clamp(0.8rem, 2vw, 0.9rem);
+            color: #2b2b2b;
+            text-transform: uppercase;
+        }
+
+        .link_ {
+            color: rgb(253, 171, 36);
+            font-weight: bold;
+            background: #222;
+            border-radius: 35px;
+            padding: 10px 20px;
+            transition: all 0.4s ease-in-out;
+        }
+
+        .link_:hover {
+            color: #222;
+            font-weight: bold;
+            background: rgb(253, 171, 36);
+            border-radius: 35px;
+            padding: 10px 20px;
+        }
+
+        .countdown-container:before {
+            content: "";
+            position: absolute;
+            height: 130px;
+            width: 130px;
+            top: -105px;
+            right: 0;
+            background: url('./images/tappbefore.png');
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+        } 
+
+        @media (max-width: 350px) {
+            .countdown-timer {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
    
 </head>
 
@@ -21,7 +105,12 @@
 <body class="hidden hidden-ball smooth-scroll rounded-borders hero-below-caption" data-primary-color="#fa821d">
 
 	
-	<main>		
+	<main style="
+        background: url('./images/test.jpg');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        ">		
         <!-- Preloader -->
         <div class="preloader-wrap glitch" data-centerLine="Loading">
         
@@ -47,81 +136,6 @@
         <!-- Page Content -->
         <div id="clapat-page-content" class="dark-content" data-bgcolor="#c8c8c8">
             
-            <!-- Header -->
-            <header class="clapat-header classic-menu invert-header" data-menucolor="#0c0c0c">
-            	
-                <!-- Graidient -->
-                <div class="header-gradient"></div>
-                <!--/Graidient -->
-                
-                <div id="header-container">
-                	
-                    <!-- Logo -->
-                    <div id="clapat-logo" class="hide-ball">
-                        <a class="ajax-link" data-type="page-transition" href="index.html">
-                            <img class="black-logo" src="images/logo.png" alt="tappdao Logo">
-                            <img class="white-logo" src="images/logo-white.png" alt="tappdao Logo">
-                        </a>
-                    </div>
-                    <!--/Logo -->
-                                
-                    
-                    <!-- Navigation -->
-                    <nav class="clapat-nav-wrapper"> 
-                        <div class="nav-height">          
-                            <ul data-breakpoint="1025" class="flexnav">
-                                <li class="menu-timeline link"><a class="ajax-link" href="whitepaper.html"><div class="before-span"><span data-hover="Whitepaper">Whitepaper</span></div></a></li>
-                                <li class="menu-timeline link"><a class="ajax-link" href="https://discord.gg/KhPdGf3q3J"><div class="before-span"><span data-hover="Discord">Discord</span></div></a></li>
-                                <li class="menu-timeline link"><a class="ajax-link" href="#"><div class="before-span"><span data-hover="Partnered With">Partnered With</span></div></a>
-                                	<ul>
-                                        <li><a class="ajax-link" href="https://x.com/SmartLayer">Smart Layer</a></li>
-                                        <li><a class="ajax-link" href="https://x.com/TheMajorDotAI">The Major AI</a></li>
-                                    </ul>
-                                </li>
-                                <li class="menu-timeline link"><a class="ajax-link" href="https://x.com/TappDao"><div class="before-span"><span data-hover="X">X</span></div></a></li>
-                                <li class="menu-timeline link"><a class="ajax-link" href="https://t.me/TappDao"><div class="before-span"><span data-hover="Telegram">Telegram</span></div></a></li>
-                            </ul>
-                        </div>          
-                    </nav>
-                    <!--/Navigation -->
-                    
-                    
-                    <!-- Header Button -->
-                    <a class="header-button" href="https://www.daos.fun/2ebNcypgeBHYgKC6MpW7aywVRmkvpSHLMXcTTP6vLWgt">
-                        <div class="button-icon-link right">                        
-                            <div class="icon-wrap-scale">
-                                <div class="icon-wrap parallax-wrap">
-                                    <div class="button-icon parallax-element">
-                                        <i class="fa-solid fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-text sticky right"><span data-hover="DAOS.FUN">DAOS.FUN</span></div>                        
-                        </div>
-                    </a>
-                    <!--/Header Button -->
-                    
-                    
-                    <!-- Menu Burger -->
-                    <div class="button-wrap right menu burger-lines">
-                        <div class="icon-wrap parallax-wrap">
-                            <div class="button-icon parallax-element">
-                                <div id="burger-wrapper">
-                                    <div id="menu-burger">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="button-text sticky right"><span data-hover="Menu">Menu</span></div> 
-                    </div>
-                    <!--/Menu Burger -->
-            
-                </div>
-            </header>
-            <!--/Header -->
             
             
             
@@ -136,16 +150,40 @@
                     <div id="hero">
                         <div id="hero-styles">
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center hero-full-caption">
-                                <div class="inner">
+                                <div class="inner" style="    display: flex
+                                ;
+                                    align-items: center;
+                                    justify-content: center;
+                                    max-width: 100%;
+                                    width: 100%;">
                                 
-                                    <h1 class="hero-title caption-timeline" data-infoTextBefore="Welcome" data-infoTextAfter="Est. 2025">
-                                        <div><span>LET'S GOOO 🚀</span></div>
-                                    </h1>
-                                    
-                                    <div class="hero-subtitle caption-timeline onload-shuffle">
-                                        <div><span>Next-Level DAO, Zero Compromise</span></div> 
-                                        <div class="secondary-font"><span>No Bots. No Fluff. Just Real Community</span></div>
-                                    </div>                                   
+                                    <div class="countdown-container">
+                                        <img src="./images/timer__.png" style="    position: absolute;
+                                        width: 15%;
+                                        bottom: 0;
+                                        left: -2%;"/>
+                                        <h2 class="countdown-title">NFT LAUNCH</h2>
+                                        <div class="countdown-timer">
+                                            <div class="countdown-block">
+                                                <div id="days" class="number_">00</div>
+                                                <div class="label">Days</div>
+                                            </div>
+                                            <div class="countdown-block">
+                                                <div id="hours" class="number_">00</div>
+                                                <div class="label">Hours</div>
+                                            </div>
+                                            <div class="countdown-block">
+                                                <div id="minutes" class="number_">00</div>
+                                                <div class="label">Minutes</div>
+                                            </div>
+                                            <div class="countdown-block">
+                                                <div id="seconds" class="number_">00</div>
+                                                <div class="label">Seconds</div>
+                                            </div>
+                                        </div>
+                                        <hr><hr>
+                                        <a class="has-animation link_" href="">Sneak Peek 👀</a>
+                                    </div>                               
                                 </div>
                             </div>
                             <div id="hero-footer" class="has-border">
@@ -264,7 +302,35 @@
     <script src="js/common.js"></script>
     <script src="js/contact.js"></script>
     <script src="js/scripts.js"></script>
+    
 
+    <script>
+        function updateCountdown() {
+            const targetDate = new Date('2025-02-16T14:00:00');
+            const currentDate = new Date();
+            const timeLeft = targetDate - currentDate;
+
+            if (timeLeft <= 0) {
+                document.querySelector('.countdown-timer').innerHTML = '<h2>Countdown Complete!</h2>';
+                return;
+            }
+
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        // Initial call to avoid delay
+        updateCountdown();
+    </script>
 
 
 </body>
