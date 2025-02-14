@@ -92,10 +92,197 @@
             background-size: cover;
         } 
 
+        .p_menu {
+            width: 100%;
+            text-align: center;
+            margin: 10px 0;
+            color: #fff;
+        }
+
+        .p_menu span {
+            padding: 0 15px;
+        }
+
+        @media (max-width: 750px) {
+            .countdown-container:before {
+                display: none;
+            }
+
+            .p_menu span {
+                padding: 0 10px;
+                font-size: 13px;
+            }
+        }
+
         @media (max-width: 350px) {
             .countdown-timer {
                 grid-template-columns: repeat(2, 1fr);
             }
+        }
+
+        .player {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background: #fff;
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            width: 140px;
+            transition: all 0.3s ease;
+        }
+
+        .player.expanded {
+            width: 300px;
+        }
+
+        .player-content {
+            padding: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .album-art {
+            width: 70px;
+            height: 70px;
+            margin-top: -36px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .expanded .album-art {
+            width: 48px;
+            height: 48px;
+        }
+
+        .album-art img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .track-info {
+            display: none;
+        }
+
+        .expanded .track-info {
+            display: block;
+            flex-grow: 1;
+            color: #1a1a1a;
+        }
+
+        .track-title {
+            font-size: 14px;
+            font-weight: 500;
+            color: #1a1a1a;
+        }
+
+        .artist {
+            font-size: 12px;
+            color: rgba(153, 153, 153, 0.479)a1a;
+        }
+
+        .equalizer {
+            display: flex;
+            gap: 2px;
+            align-items: flex-end;
+            height: 20px;
+        }
+
+        .expanded .equalizer {
+            display: none;
+        }
+
+        .bar {
+            width: 3px;
+            background: #FDAB24;
+            border-radius: 1px;
+            animation: equalize 1s infinite;
+        }
+
+        .bar.paused {
+            animation-play-state: paused;
+        }
+
+        .bar:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+        .bar:nth-child(2) { height: 16px; animation-delay: 0.2s; }
+        .bar:nth-child(3) { height: 12px; animation-delay: 0.3s; }
+
+        @keyframes equalize {
+            0% { transform: scaleY(1); }
+            50% { transform: scaleY(0.5); }
+            100% { transform: scaleY(1); }
+        }
+
+        .toggle-expand {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: #1a1a1a;
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .toggle-expand:hover {
+            opacity: 1;
+        }
+
+        .toggle-expand i {
+            font-size: 14px;
+        }
+
+        .controls {
+            display: none;
+            justify-content: flex-end;
+            gap: 24px;
+            margin-right: 8px;
+        }
+
+        .expanded .controls {
+            display: flex;
+        }
+
+        .control-button {
+            background: none;
+            border: none;
+            color: #2b2b2b;
+            cursor: pointer;
+            padding: 4px;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        .control-button:hover {
+            opacity: 1;
+        }
+
+        .control-button i {
+            font-size: 16px;
+        }
+
+        /* New styles for time progress */
+        .time-progress {
+            display: none;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .expanded .time-progress {
+            display: block;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: #FDAB24;
+            width: 0%;
+            transition: width 0.1s linear;
         }
     </style>
    
@@ -110,7 +297,47 @@
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-        ">		
+        ">	
+        
+        <div class="player" id="player" style="z-index: 99;">
+            <div class="player-content">
+                <div class="album-art">
+                    <img src="./images/tappbefore.png" alt="Album Art">
+                </div>
+                <div class="equalizer" id="equalizer">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+                <div class="track-info">
+                    <div class="track-title">Lofi Music</div>
+                    <div class="artist">TappDAO</div>
+                </div>
+                <div class="controls">
+                    <button class="control-button" id="prevTrack">
+                        <i class="fas fa-backward"></i>
+                    </button>
+                    <button class="control-button" id="playPause">
+                        <i class="fas fa-pause"></i>
+                    </button>
+                    <button class="control-button" id="nextTrack">
+                        <i class="fas fa-forward"></i>
+                    </button>
+                </div>
+                <button class="toggle-expand" id="toggleExpand">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+            <div class="time-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    
+        <audio id="audioPlayer">
+            <!-- Add your audio source here -->
+            <source src="./music/lofi1.mp3" type="audio/mp3">
+        </audio>
+
         <!-- Preloader -->
         <div class="preloader-wrap glitch" data-centerLine="Loading">
         
@@ -145,11 +372,17 @@
             
                 <!-- Main -->
                 <div id="main">
-                
+                    
                     <!-- Hero Section -->
                     <div id="hero">
                         <div id="hero-styles">
+                            <p class="p_menu">
+                                <span>Home</span>
+                                <span>Whitepaper</span>
+                                <span>Buy $TD</span>
+                            </p>
                             <div id="hero-caption" class="content-full-width parallax-scroll-caption text-align-center hero-full-caption">
+                                
                                 <div class="inner" style="    display: flex
                                 ;
                                     align-items: center;
@@ -186,7 +419,7 @@
                                     </div>                               
                                 </div>
                             </div>
-                            <div id="hero-footer" class="has-border">
+                            <div id="hero-footer" class="has-border" style="opacity: 0;">
                             	<div class="hero-footer-left">
                                 	<div class="button-wrap left scroll-down">
                                         <div class="icon-wrap parallax-wrap">
@@ -224,7 +457,7 @@
                 
                 
                 <!-- Footer -->
-                <footer class="clapat-footer">        	
+                <footer class="clapat-footer" style="opacity: 0;">        	
                     <div id="footer-container">
                         
                         <div id="backtotop" class="button-wrap left">
@@ -330,6 +563,87 @@
         setInterval(updateCountdown, 1000);
         // Initial call to avoid delay
         updateCountdown();
+
+        const player = document.getElementById('player');
+        const audioElement = document.getElementById('audioPlayer');
+        const toggleButton = document.getElementById('toggleExpand');
+        const playPauseButton = document.getElementById('playPause');
+        const prevButton = document.getElementById('prevTrack');
+        const nextButton = document.getElementById('nextTrack');
+        const progressBar = document.getElementById('progressBar');
+        const equalizer = document.getElementById('equalizer');
+        let isExpanded = false;
+        let isPlaying = true;
+
+        // Playlist functionality
+        const playlist = [
+            {
+                title: "Lofi Music",
+                artist: "TappDAO 🤘🏻",
+                file: "/music/lofi1.mp3"
+            },
+            {
+                title: "Lofi Music",
+                artist: "TappDAO 🤘🏻",
+                file: "/music/lofi2.mp3"
+            },
+            // Add more tracks as needed
+        ];
+        let currentTrackIndex = 0;
+
+        // Update audio source
+        function loadTrack(index) {
+            const track = playlist[index];
+            audioElement.src = track.file;
+            if(isPlaying) {
+                audioElement.play();
+            }
+        }
+
+        // Toggle play/pause
+        playPauseButton.addEventListener('click', () => {
+            if (audioElement.paused) {
+                audioElement.play();
+                isPlaying = true;
+                playPauseButton.innerHTML = '<i class="fas fa-pause"></i>';
+                equalizer.querySelectorAll('.bar').forEach(bar => bar.classList.remove('paused'));
+            } else {
+                audioElement.pause();
+                isPlaying = false;
+                playPauseButton.innerHTML = '<i class="fas fa-play"></i>';
+                equalizer.querySelectorAll('.bar').forEach(bar => bar.classList.add('paused'));
+            }
+        });
+
+        // Previous track
+        prevButton.addEventListener('click', () => {
+            currentTrackIndex = (currentTrackIndex - 1 + playlist.length) % playlist.length;
+            loadTrack(currentTrackIndex);
+        });
+
+        // Next track
+        nextButton.addEventListener('click', () => {
+            currentTrackIndex = (currentTrackIndex + 1) % playlist.length;
+            loadTrack(currentTrackIndex);
+        });
+
+        // Update progress bar
+        audioElement.addEventListener('timeupdate', () => {
+            const progress = (audioElement.currentTime / audioElement.duration) * 100;
+            progressBar.style.width = `${progress}%`;
+        });
+
+        // Expand/collapse
+        toggleButton.addEventListener('click', () => {
+            isExpanded = !isExpanded;
+            player.classList.toggle('expanded');
+            toggleButton.innerHTML = isExpanded ? 
+                '<i class="fas fa-minus"></i>' : 
+                '<i class="fas fa-plus"></i>';
+        });
+
+        // Initialize first track
+        loadTrack(currentTrackIndex);
     </script>
 
 
